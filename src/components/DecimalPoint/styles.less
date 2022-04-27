@@ -1,0 +1,203 @@
+@import '../../styles/base.less';
+@boxShadow: 0px 0px 20px 0px rgba(153, 169, 191, 0.2);
+@left: -190px;
+@contentColor: #1f2d3d;
+
+.gw_decimal-point {
+  width: 47px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 666;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(153, 169, 191, 0.2);
+  border-radius: 24px;
+  text-align: center;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+.gw_decimal-point--icon {
+  width: 100%;
+  position: relative;
+  transform: translateY(-1px);
+  &:hover {
+    background: rgba(4, 203, 148, 0.04);
+    border-radius: 19px;
+  }
+  &:hover .gw_decimal-point--content {
+    display: flex;
+  }
+  .icon_point--bg {
+    background-color: #04cb94;
+    width: 47px;
+    height: 47px;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > img {
+      width: 40px;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+    }
+  }
+}
+.gw_decimal-point--content {
+  position: absolute;
+  width: 170px;
+  box-shadow: 0px 0px 20px 0px rgba(153, 169, 191, 0.2);
+  background-color: #fff;
+  left: -184px;
+  top: -25px;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  img {
+    width: 78px;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #1f2d3d;
+    line-height: 20px;
+    padding: 0;
+    margin: 10px 0 0;
+  }
+  &::after {
+    content: ' ';
+    position: absolute;
+    top: 40px;
+    right: -15px;
+    border-left: 10px solid #fff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+}
+.gw_decimal-point__counsel-list {
+  margin-top: 3px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.gw_decimal-point__counsel-item {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 38px;
+  width: 35px;
+  border-radius: 24px;
+  &:hover {
+    background-color: rgba(4, 203, 148, 0.04);
+  }
+  &.phone {
+    background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/20220427_phone_grey.svg);
+    background-size: 15px 21px;
+    height: 41px;
+    &:hover {
+      background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/icon_phone_active.svg);
+    }
+  }
+  &.wechat {
+    background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/20220427_wechat_grey.svg);
+    background-size: 22px 18px;
+    &:hover {
+      background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/icon_wechat_active.svg);
+    }
+  }
+  &.email {
+    background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/20220427_email_grey.svg);
+    background-size: 22px 18px;
+    &:hover {
+      background-image: url(https://ow-file.sensorsdata.cn/official-website/gw_components/gw_decimal-point/icon_email_active.svg);
+    }
+  }
+  &:not(:last-child)::after {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background-color: rgba(153, 169, 191, 0.2);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .gw_decimal-point__counsel-item-content {
+    position: absolute;
+    left: @left;
+    top: -20px;
+    padding: 20px;
+    width: 170px;
+    height: auto;
+    background: #fff;
+    box-shadow: @boxShadow;
+    text-align: left;
+    display: none;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 30px;
+      right: -15px;
+      border-left: 10px solid #fff;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid transparent;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: @contentColor;
+      width: 100%;
+      text-align: left;
+      & + p {
+        margin-top: 10px;
+      }
+    }
+    p:nth-child(2) {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+    img {
+      width: 78px;
+      margin: 0 0 10px;
+      padding: 0;
+      vertical-align: top;
+    }
+    span {
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #1f2d3d;
+      line-height: 20px;
+    }
+  }
+
+  &:hover {
+    .gw_decimal-point__counsel-item-content {
+      display: flex;
+    }
+  }
+}

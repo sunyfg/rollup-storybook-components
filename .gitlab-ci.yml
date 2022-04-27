@@ -1,0 +1,58 @@
+stages:
+  - init
+  - build
+  - deploy
+# 缓存目录
+cache:
+  key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules/
+    - _output/
+# 安装依赖
+install_deps:
+  stage: init
+  script:
+    - sh scripts/install.sh
+  tags:
+    - eefe_project
+# 开发版编译
+# build_develop:
+#   stage: build
+#   only:
+#     - develop
+#     - blog
+#     - school
+#   script:
+#     - sh scripts/build_develop.sh
+#   tags:
+#     - eefe_project
+
+# 正式版编译
+# build_production:
+#   stage: build
+#   only:
+#     - master
+#   script:
+#     - sh scripts/build_production.sh
+#   tags:
+#     - eefe_project
+
+# 官网开发环境部署
+# deploy_develop:
+#   stage: deploy
+#   only:
+#     - develop
+#   script:
+#     - sh scripts/deploy_develop.sh
+#   tags:
+#     - eefe_project
+
+# 官网正式环境部署
+# deploy_production:
+#   stage: deploy
+#   only:
+#     - master
+#   script:
+#     - sh scripts/deploy_production.sh
+#   tags:
+#     - eefe_project
